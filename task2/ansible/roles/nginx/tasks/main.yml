@@ -1,0 +1,14 @@
+---
+
+- name: Install nginx
+  become: yes
+  apt: 
+    name: nginx 
+    state: present 
+    update_cache: true
+
+
+- name: Install system nginx config
+  template:
+    src: templates/nginx.conf
+    dest: /etc/nginx/nginx.conf

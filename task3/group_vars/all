@@ -1,0 +1,3 @@
+region: us-east-1
+security_groups: sg-1243854678
+elb: ngnixelb
