@@ -49,3 +49,12 @@ resource "local_file" "foo" {
     content  = "security_groups: ${module.myvpc.security}\nelb: ${module.loadbalancer.elbname}\nalbname: ${module.loadbalancer.albname}\nregion: ${var.region}"
     filename = "${path.module}/packer/group_vars/all"
 }
+
+module "ecsfargate"{
+  source = "../modules/fargateecs"
+  vpc_id= "${module.myvpc.vpc_id}"
+  publicsubnet= "${module.myvpc.publicsubnets}"
+  privatesubnet = "${module.myvpc.privatesubnet}"
+
+
+}

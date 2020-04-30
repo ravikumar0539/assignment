@@ -117,3 +117,6 @@ output "publicsubnets"{
 output "security"{
     value = "${aws_security_group.main.id}"
 }
+output "privatesubnet"{
+    value = "${aws_subnet.privatesubnet.*.id}"
+}
